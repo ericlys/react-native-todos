@@ -1,4 +1,4 @@
-# MySkills
+# to.do
 
 to.do is a task reminder app where you can add, remove, mark complete and edit tasks.
 
