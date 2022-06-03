@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
+import { Alert, StyleSheet, Text, View } from 'react-native';
 
 import { Header } from '../components/Header';
 import { Task, TasksList } from '../components/TasksList';
@@ -72,12 +72,17 @@ export function Home() {
 
       <TodoInput addTask={handleAddTask} />
 
-      <TasksList 
-        tasks={tasks} 
-        toggleTaskDone={handleToggleTaskDone}
-        removeTask={handleRemoveTask} 
-        editTask={handleEditTask}
-      />
+      {tasks.length>0
+      ?  <TasksList 
+          tasks={tasks} 
+          toggleTaskDone={handleToggleTaskDone}
+          removeTask={handleRemoveTask} 
+          editTask={handleEditTask}
+        />
+      : <Text style={styles.empty}>
+          Nenhum todo encontrado.
+        </Text>
+    }
     </View>
   )
 }
@@ -86,5 +91,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#EBEBEB'
+  },
+  empty: {
+    flex:1, 
+    textAlignVertical:'center', 
+    textAlign: 'center',
+    color: '#928f8f'
   }
 })
